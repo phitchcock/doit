@@ -1,1 +1,19 @@
 <h1><%= @list.name %></h1>
+
+
+<%= form_for([@list, @task]) do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<h3>Tasks</h3>
+<hr>
+<% @list.tasks.each do |task| %>
+  <p><%= task.name %></p>
+<% end %>

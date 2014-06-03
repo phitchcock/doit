@@ -1,9 +1,9 @@
-<h1>Lists</h1>
+<h1>Task Lists</h1>
 
 <div>
   <% @lists.each do |list| %>
   <div>
-    <%= link_to list.name, list %>
+    <%= link_to list.name, list %> | has <%= list.tasks.count %> tasks to be completed
   </div>
   <% end %>
 </div>

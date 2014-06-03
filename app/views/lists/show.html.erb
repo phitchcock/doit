@@ -1,19 +1,20 @@
-<h1><%= @list.name %></h1>
+<div class="header">
+  <h1>Task List: <%= @list.name %><small> [<%= link_to 'edit', edit_list_path(@list) %>] or [<%= link_to 'destroy', list_path(@list), method: :delete, data: {confirm: 'really?'} %>]</small> </h1>
+</div>
 
-
-<%= form_for([@list, @task]) do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.submit %>
-  </div>
-<% end %>
-
-
-<h3>Tasks</h3>
-<hr>
+<h3>Tasks:</h3>
 <% @list.tasks.each do |task| %>
-  <p><%= task.name %></p>
+  <p><%= task.name %> | created: <%= task.created_at.strftime("%d %b, %Y %I:%M %p") %> will be deleted in <%=  task.created_at.strftime("%d %b, %Y %I:%M %p") %> | <%= link_to 'complete?', [task.list, task], method: :delete, data: {confirm: 'really?' } %></p>
 <% end %>
+
+<h3>Add Task:</h3>
+<%= form_for([@list, @task]) do |f| %>
+  <div class="form-group">
+    <%= f.text_field :name, placholder: 'task name', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-success' %>
+  </div>
+<% end %>
+
+

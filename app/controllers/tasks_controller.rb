@@ -14,4 +14,16 @@ class TasksController < ApplicationController
     end
   end
 
+  def destroy
+    @list = List.find(params[:list_id])
+    @task = @list.tasks.find(params[:id])
+
+    if @task.destroy
+      redirect_to list_path(@list), notice: "#{@task.name} was destroyed!"
+    else
+      flash.now[:error] = "Task was not destroyed"
+      redirect_to list_path(@list)
+    end
+  end
+
 end

@@ -37,7 +37,7 @@ class ListsController < ApplicationController
     end
   end
 
-  def destry
+  def destroy
     if @list.destroy
       redirect_to lists_path, notice: "#{@list.name} was destroyed!"
     else

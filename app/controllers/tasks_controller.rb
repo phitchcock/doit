@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
 
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
 
   def create
     @list = List.find(params[:list_id])

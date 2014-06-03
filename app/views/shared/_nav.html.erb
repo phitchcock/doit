@@ -1,0 +1,17 @@
+<div class="header">
+  <ul class="nav nav-pills pull-right">
+    <li><%= link_to 'home', root_path %></li>
+    <li><%= link_to 'all lists', lists_path %></li>
+    <% if user_signed_in? %>
+      <li><%= link_to 'my lists', user_path(current_user) %></li>
+      <li><%= link_to 'new list', new_list_path %></li>
+      <li><%= link_to 'settings', edit_user_registration_path(current_user) %></li>
+      <li><%= link_to 'logout', destroy_user_session_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to 'signin', new_user_session_path %></li>
+      <li><%= link_to 'signup', new_user_registration_path %></li>
+    <% end %>
+    
+  </ul>
+  <h3 class="text-muted">Doit</h3>
+</div>

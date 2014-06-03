@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -16,7 +16,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(list_params)
+    @list = current_user.lists.build(list_params)
     if @list.save
       redirect_to @list, notice: "#{@list.name} was created!"
     else

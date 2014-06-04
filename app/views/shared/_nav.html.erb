@@ -8,10 +8,9 @@
       <li><%= link_to 'settings', edit_user_registration_path(current_user) %></li>
       <li><%= link_to 'logout', destroy_user_session_path, method: :delete %></li>
     <% else %>
-      <li><%= link_to 'signin', new_user_session_path %></li>
-      <li><%= link_to 'signup', new_user_registration_path %></li>
+      <li><%= link_to 'sign in', new_user_session_path %></li>
+      <li><%= link_to 'sign up', new_user_registration_path %></li>
     <% end %>
-    
   </ul>
   <h3 class="text-muted">Doit</h3>
 </div>

@@ -11,6 +11,8 @@ gem 'jbuilder', '~> 2.0'
 # Added Gems
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'devise_invitable'
+gem 'whenever'
 
 group :production do
   gem 'pg'
@@ -20,6 +22,7 @@ end
 group :development do
   gem 'sqlite3'
   gem 'spring'
+  gem 'rails-erd'
 end
 
 group :doc do 

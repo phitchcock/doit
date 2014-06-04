@@ -1,10 +1,10 @@
 <div class="header">
-  <h1>Task List: <%= @list.name %><small> [<%= link_to 'edit', edit_list_path(@list) %>] or [<%= link_to 'destroy', list_path(@list), method: :delete, data: {confirm: 'really?'} %>]</small> </h1>
+  <h1>Task List: <%= @list.name %><small> [<%= link_to 'edit', edit_list_path(@list) %>] or [<%= link_to 'destroy', list_path(@list), method: :delete, data: {confirm: "Are you sure you want to delete the list #{@list.name}?"} %>]</small> </h1>
 </div>
 
 <h3>Tasks:</h3>
 <% @list.tasks.each do |task| %>
-  <p><%= task.name %> | created: <%= task.created_at.strftime("%d %b, %Y %I:%M %p") %> will be deleted in <%=  task.created_at.strftime("%d %b, %Y %I:%M %p") %> | <%= link_to 'complete?', [task.list, task], method: :delete, data: {confirm: 'really?' } %></p>
+  <p><%= task.name %> | created: <%= task.created_at.strftime("%d %b, %Y %I:%M %p") %> will be deleted in <%=  task.created_at + 7.days %> | <%= link_to 'complete?', [task.list, task], method: :delete, data: {confirm: "Are you sure the task #{task.name} was completed?" } %></p>
 <% end %>
 
 <h3>Add Task:</h3>

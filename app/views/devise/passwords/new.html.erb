@@ -9,8 +9,9 @@
         <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
           <%= devise_error_messages! %>
 
-          <div class="form-group">
+          <div class="input-group form-group">
             <%= f.email_field :email, autofocus: true, placeholder: "Your email", class: 'form-control' %>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
           </div>
 
           <div>

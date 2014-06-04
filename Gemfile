@@ -13,6 +13,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'devise_invitable'
 gem 'whenever'
+gem 'figaro'
 
 group :production do
   gem 'pg'

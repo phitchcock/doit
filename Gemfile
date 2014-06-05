@@ -14,6 +14,7 @@ gem 'devise'
 gem 'devise_invitable'
 gem 'whenever'
 gem 'figaro'
+gem 'active_model_serializers'
 
 group :production do
   gem 'pg'

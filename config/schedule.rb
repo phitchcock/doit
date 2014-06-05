@@ -19,5 +19,5 @@
 
 # Learn more: http://github.com/javan/whenever
 every 1.day, :at => '7:00 am' do
-  rake "rake:seven_day_destroy"
+  rake "delete_items"
 end

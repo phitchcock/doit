@@ -4,7 +4,7 @@
 
 <h3>Tasks:</h3>
 <% @list.tasks.each do |task| %>
-  <p><%= task.name %> | created: <%= task.created_at.strftime("%d %b, %Y %I:%M %p") %> will be deleted in <%=  task.created_at + 7.days %> | <%= link_to 'complete?', [task.list, task], method: :delete, data: {confirm: "Are you sure the task #{task.name} was completed?" } %></p>
+  <p><%= task.name %> | created: <%= task.created_at.strftime("%d %b, %Y %I:%M %p") %> will be deleted in <%= distance_of_time_in_words(Time.now, task.deletion_time) %> | <%= link_to 'complete?', [task.list, task], method: :delete, data: {confirm: "Are you sure the task #{task.name} was completed?" } %></p>
 <% end %>
 
 <h3>Add Task:</h3>
@@ -17,4 +17,4 @@
   </div>
 <% end %>
 
-
+<%= render partial: 'shared/invitation', locals: {resource: User.new, resource_name: 'user'} %>

@@ -6,7 +6,13 @@ module Api
       respond_to :json
 
       def index
-        respond_with(List.all.order("created_at ASC").order('id DESC'))
+        lists = List.all
+        respond_with lists
+      end
+
+      def show
+        list = List.find(params[:id])
+        respond_with list
       end
 
     end

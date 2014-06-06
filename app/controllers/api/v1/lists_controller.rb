@@ -1,10 +1,6 @@
 module Api
   module V1
-    class ListsController < ApplicationController
-
-      #before_filter :authenticate_user!
-      skip_before_filter :verify_authenticity_token
-      respond_to :json
+    class ListsController < ApiController
 
       def index
         lists = List.all
@@ -29,10 +25,6 @@ module Api
 
       def list_params
         params.require(:list).permit! if params[:list]
-      end
-
-      def default_serializer_options
-        {root: false}
       end
 
     end

@@ -1,6 +1,6 @@
 module Api
   module V1
-    class TasksController < ApplicationController
+    class TasksController < ApiController
 
       skip_before_filter :verify_authenticity_token
       respond_to :json
@@ -19,12 +19,6 @@ module Api
       def destroy
         task = Task.destroy(params[:id])
         respond_with task
-      end
-
-      private
-
-      def default_serializer_options
-        {root: false}
       end
 
     end

@@ -106,6 +106,8 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     ruby-graphviz (1.0.9)
     sass (3.2.19)
     sass-rails (4.0.3)
@@ -162,6 +164,7 @@ DEPENDENCIES
   rails (= 4.1.0)
   rails-erd
   rails_12factor
+  rest-client
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring

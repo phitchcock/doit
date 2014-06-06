@@ -15,6 +15,7 @@ gem 'devise_invitable'
 gem 'whenever'
 gem 'figaro'
 gem 'active_model_serializers'
+gem 'rest-client'
 
 group :production do
   gem 'pg'

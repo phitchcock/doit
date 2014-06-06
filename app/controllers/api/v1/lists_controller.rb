@@ -13,12 +13,18 @@ module Api
       end
 
       def create
-        list = List.create(list_params)
-        respond_with list
+        list = List.new(list_params)
+        if list.save
+          respond_with list
+        else
+          render json: list.errors, status: 422
+        end
       end
 
       def destroy
-        respond_with List.destroy(params[:id])
+        list = List.find(params[:id])
+        list.destroy
+        respond_with list
       end
 
       private

@@ -1,7 +1,7 @@
 module Api
   module V1
     class UsersController < ApiController
-
+      
       def index
         users = User.all
         respond_with users
@@ -13,8 +13,13 @@ module Api
       end
 
       def create
-        user = User.create(params.require(:user).permit!)
-        respond_with user
+        user = User.new(params.require(:user).permit!)
+
+        if user.save
+          respond_with user
+        else
+          render :json, user.errors, status: 422
+        end
       end
 
     end

@@ -12,12 +12,18 @@ module Api
 
       def create
         list = List.find(params[:list_id])
-        task = list.tasks.create(params.require(:task).permit!)
-        respond_with task
+        task = list.tasks.build(params.require(:task).permit!)
+
+        if task.save
+          respond_with task
+        else
+          render :json, task.errors, status: :unprocessable_entity
+        end
       end
 
       def destroy
-        task = Task.destroy(params[:id])
+        task = Task.find(params[:id])
+        task.destroy
         respond_with task
       end
 

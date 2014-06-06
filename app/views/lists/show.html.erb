@@ -2,6 +2,11 @@
   <h1>Task List: <%= @list.name %><small> [<%= link_to 'edit', edit_list_path(@list) %>] or [<%= link_to 'destroy', list_path(@list), method: :delete, data: {confirm: "Are you sure you want to delete the list #{@list.name}?"} %>] this list. [<%= link_to 'Invite', new_user_invitation_path %>] another user to help out on the list </small> </h1>
 </div>
 
+
+if policy(@list).edit?
+  =link_to 'edit'
+
+
 <h3>Tasks:</h3>
 <% @list.tasks.each do |task| %>
   <p><%= task.name %> | created: <%= task.created_at.strftime("%d %b, %Y %I:%M %p") %> will be deleted in <%= distance_of_time_in_words(Time.now, task.deletion_time) %> | <%= link_to 'complete?', [task.list, task], method: :delete, data: {confirm: "Are you sure the task #{task.name} was completed?" } %></p>

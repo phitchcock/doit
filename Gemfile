@@ -16,6 +16,7 @@ gem 'whenever'
 gem 'figaro'
 gem 'active_model_serializers'
 gem 'rest-client'
+gem 'pundit'
 
 group :production do
   gem 'pg'

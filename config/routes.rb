@@ -10,13 +10,17 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do 
    namespace :v1 do
-    
+    resources :users
     resources :lists do
       resources :tasks
     end
-
-    resources :users
    end
- end
+  end
+
+  namespace :apitest, path: '/', constraints: {subdomain: 'apitest'} do
+    namespace :v1 do
+      resources :lists, defaults: {format: :json}
+    end
+  end
 
 end

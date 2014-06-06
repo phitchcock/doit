@@ -3,6 +3,9 @@
   <div class="form-group">
     <%= f.text_field :name, placeholder: 'list name', class: 'form-control' %>
   </div>
+  <div>
+    <%= f.select :visibility, List.visibilities.keys, selected: @list.visibility %>
+  </div>
   <div class="form-group">
     <%= f.submit class: 'btn btn-success' %>
   </div>

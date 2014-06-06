@@ -6,7 +6,25 @@ module Api
       respond_to :json
 
       def index
-        respond_with(Task.all.order("created_at ASC").order('id DESC'))
+        tasks = Task.all
+        respond_with tasks
+      end
+
+      def create
+        list = List.find(params[:list_id])
+        task = list.tasks.create(params.require(:task).permit!)
+        respond_with task
+      end
+
+      def destroy
+        task = Task.destroy(params[:id])
+        respond_with task
+      end
+
+      private
+
+      def default_serializer_options
+        {root: false}
       end
 
     end
